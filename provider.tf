@@ -10,7 +10,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "ansible-tfstate-ec2-sample"
+    bucket       = "ansible-tfstate-ec2-sample" # This value must match what is in environment.auto.tfvars
     key          = "ec2-sample"   # vars not allowed here!
     region       = "ca-central-1" # vars not allowed here!
     encrypt      = true
