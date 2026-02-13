@@ -1,6 +1,6 @@
 # ec2-sample-single-al2023
 
-Sample terraform project to create a single EC2 instance with a public IP.  This repository is intended for University of Saskatchewan researchers deploying to AWS, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account, you will start to incur charges. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
+Sample terraform project to create a single EC2 instance with a public IP running Amazon Linux 2023.  This repository is intended for University of Saskatchewan researchers deploying to AWS, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account, you will start to incur charges. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
 
 https://developer.hashicorp.com/terraform/install
 
@@ -75,7 +75,9 @@ After applying, run terraform apply again to ensure that the deployed infrastruc
 ```
 terraform apply
 ```
-Now you can go look at the objects in the AWS web console.  If you want to ssh into your newly created instance, check both the security group rule for port 22 inbound and also the subnet NACL for port 22 inbound.  Do not open port 22 to the world - just add your IP address or a small CIDR that includes your IP address.
+Now you can go look at the objects in the AWS web console.  If you click on the instance and open AWS SSM console, you will get a terminal into the instance without opening up ssh port 22.
+
+If you want to ssh into your newly created instance, first edit the file `security_base_ingress_rules.auto.tfvars` and add your IP address as needed.  The U of S campus address space is already there for convenience. Next, check both the security group rule for port 22 inbound and also the subnet NACL for port 22 inbound, they will likely both need to be added.  Do not open port 22 to the world - just add your IP address. If you are not sure, you can go to https://whatsmyip.com/ and find what it is.
 
 12. Clean up
 
