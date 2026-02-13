@@ -1,6 +1,8 @@
 # ec2-sample-single-al2023
 
-Sample terraform project to create a single EC2 instance with a public IP running Amazon Linux 2023.  This repository is intended for University of Saskatchewan researchers deploying to AWS, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account, you will start to incur charges. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
+Sample terraform project to create a single EC2 instance with a public IP running Amazon Linux 2023.
+
+This repository is intended for University of Saskatchewan researchers deploying to AWS, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account **you will start to incur charges**. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
 
 1. Download and install the needed tools:
 
@@ -37,7 +39,10 @@ Use your chosen bucket name here, and the `--profile` argument is required if yo
 If you forget the `--create-bucket-configuration` argument you will get an error "The unspecified location constraint is incompatible for the region specific endpoint this request was sent to."  This argument is required to create a bucket that is constrained to the `ca-central-1` region.
 
 ```
-aws s3api create-bucket --bucket <bucketname> --region ca-central-1 --create-bucket-configuration LocationConstraint=ca-central-1 --profile <profilename>
+aws s3api create-bucket --bucket <bucketname> \
+  --region ca-central-1 \
+  --create-bucket-configuration LocationConstraint=ca-central-1 \
+  --profile <profilename>
 ```
 
 7. Create an ed25519 key for your instance
@@ -71,7 +76,7 @@ If eveything looks OK in the plan, apply it.
 ```
 terraform apply
 ```
-After applying, run terraform apply again to ensure that the deployed infrastructure matches the desired state:
+After applying, run terraform apply again to ensure that the deployed infrastructure matches the desired state (some times the EBS volumes take longer to create than terraform waits):
 ```
 terraform apply
 ```
