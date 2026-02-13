@@ -2,7 +2,7 @@
 
 Sample terraform project to create a single EC2 instance with a public IP running Amazon Linux 2023.
 
-This repository is intended for University of Saskatchewan researchers deploying to AWS, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account **you will start to incur charges**. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
+This repository is intended for University of Saskatchewan researchers deploying to a member AWS account within the Usask AWS organization, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account **you will start to incur charges**. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
 
 1. Download and install the needed tools:
 
