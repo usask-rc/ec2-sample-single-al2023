@@ -7,6 +7,12 @@ resource "aws_instance" "web" {
   iam_instance_profile   = var.ec2_instance_profile
   vpc_security_group_ids = [aws_security_group.sample-sg-base-ec2.id, aws_security_group.sample-sg-front-end.id]
   user_data              = file("scripts/bootstrap_web.sh")
+  root_block_device {
+    volume_size           = "20"
+    volume_type           = "gp3"
+    encrypted             = true
+    delete_on_termination = true
+  }
   tags = {
     "Name"         = var.ec2_web_name
     "private_name" = var.ec2_web_name
