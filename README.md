@@ -4,6 +4,8 @@ Sample terraform project to create a single EC2 instance with a public IP runnin
 
 This repository is intended for University of Saskatchewan researchers deploying to a member AWS account within the Usask AWS organization, it may not work in your environment.  Please note that if you deploy the resources in this repository into your AWS account **you will start to incur charges**. You are encouraged to destroy the resources when you are done testing so that the charges do not continue to accumulate.
 
+If you want to run Terraform within Ubuntu on Windows (WSL) then follow the instructions in the [ansible-ec2-al2023](https://github.com/usask-rc/ansible-ec2-al2023) repo up to step 13 (fix ssh key private permissions) first and then come back to these instructions.
+
 1. Download and install the needed tools:
 
 Terraform: https://developer.hashicorp.com/terraform/install
